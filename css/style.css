@@ -218,3 +218,11 @@ body {
     border: 1px solid var(--colorNegro);
     border-radius: .8rem;
 }
+
+.footer {
+    color: var(--colorRojo);    
+    font-size: 2rem;
+    font-family: var(--letraSecundaria);
+    padding: 1rem;
+    text-align: center;
+}
