@@ -19,12 +19,13 @@ import obtenerProductos from "./API.js";
     const productos = await obtenerProductos();
 
     console.log(productos);
+    limpiarHtml();
 
     productos.forEach(producto => {
       const { categoria, nombre, img, precio, tallas, descripcion, id } = producto;
 
 
-      if (categoria == selectedOption.value) {
+      if (categoria === selectedOption.value) {
 
         const divProductos = document.createElement("div")
 
@@ -39,27 +40,16 @@ import obtenerProductos from "./API.js";
         `;
 
         resultado.appendChild(divProductos);
-
-        return;
-      }
-
-      if (categoria == selectedOption.value) {
-        const divProductos = document.createElement("div")
-
-        divProductos.innerHTML += `
-          <div class="producto">
-            <img class="img-producto" src="${img}" alt="${nombre}">
-            <p class="precio">Precio: <span>$${precio}</span></p>                  
-            <div class="border-bottom"></div>
-          </div>
-        `;
-
-        resultado.appendChild(divProductos);
-
         return;
       }
 
     });
+  }
+
+  function limpiarHtml() {
+    while (resultado.firstChild) {
+      resultado.removeChild(resultado.firstChild);
+    }
   }
 
 })();
