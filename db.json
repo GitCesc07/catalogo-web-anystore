@@ -1,0 +1,22 @@
+{
+    "productos":[
+        {
+            "categoria" : "Camisas - Damas",
+            "nombre": "Imagen-1",
+            "img" : "https://i.ibb.co/pw2M0FX/photo-5077905208490699878-y.jpg",
+            "id": 1
+        },
+         {
+            "categoria" : "Camisas - Damas",
+            "nombre": "Imagen-2",
+            "img" : "https://i.ibb.co/LSSdzD7/photo-5077905208490699879-y.jpg",
+            "id": 2
+        },
+         {
+            "categoria" : "Camisas - Damas",
+            "nombre": "Imagen-3",
+            "img" : "https://i.ibb.co/jrnKS7T/photo-5077905208490699880-y.jpg",
+            "id": 3
+        }
+    ]
+}
