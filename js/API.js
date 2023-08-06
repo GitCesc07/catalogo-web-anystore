@@ -6,12 +6,14 @@ const obtenerProductos = async () => {
   try {
     const resultado = await fetch(url)
     const productos = await resultado.json();
+
     return productos;
   }
   catch (error) {
     console.log(error);
   }
 }
+
 
 
 export default obtenerProductos;

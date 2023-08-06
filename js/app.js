@@ -5,7 +5,7 @@ import obtenerProductos from "./API.js";
 
   let selectedOption;
 
-  // document.addEventListener("DOMContentLoaded", mostrarProductos);
+  document.addEventListener("DOMContentLoaded", mostrarProductos);
 
   var select = document.getElementById('select');
   select.addEventListener('change',
@@ -18,32 +18,69 @@ import obtenerProductos from "./API.js";
 
     const productos = await obtenerProductos();
 
-    console.log(productos);
-    limpiarHtml();
+    if (localStorage.getItem("productos")) {
+      const resultLocalStorage = JSON.parse(localStorage.getItem("productos"));
+      console.log(productos);
 
-    productos.forEach(producto => {
-      const { categoria, nombre, img, precio, tallas, descripcion, id } = producto;
+      limpiarHtml();
+
+      resultLocalStorage.forEach(producto => {
+        const { categoria, nombre, img, precio, tallas, descripcion, id } = producto;
 
 
-      if (categoria === selectedOption.value) {
+        if (categoria === selectedOption.value) {
 
-        const divProductos = document.createElement("div")
+          const divProductos = document.createElement("div")
 
-        divProductos.innerHTML += `
-          <div class="producto">
-            <img class="img-producto" src="${img}" alt="${nombre}">
-            <p class="precio">Precio: <span>$${precio}</span></p>
-            <p class="tallas">Tallas: <span>${tallas}</span></p>
-            <p class="tonos">Tonos: <span>${descripcion}</span></p>
-            <div class="border-bottom"></div>
-          </div>
-        `;
+          divProductos.innerHTML += `
+            <div class="producto">
+              <img class="img-producto" src="${img}" alt="${nombre}">
+              <p class="precio">Precio: <span>$${precio}</span></p>
+              <p class="tallas">Tallas: <span>${tallas}</span></p>
+              <p class="tonos">Tonos: <span>${descripcion}</span></p>
+              <div class="border-bottom"></div>
+            </div>
+          `;
 
-        resultado.appendChild(divProductos);
-        return;
-      }
+          resultado.appendChild(divProductos);
+          return;
+        }
 
-    });
+      });
+    }
+    else {
+      localStorage.setItem("productos", JSON.stringify(productos));
+    }
+
+
+
+
+
+    // limpiarHtml();
+
+    //   productos.forEach(producto => {
+    //     const { categoria, nombre, img, precio, tallas, descripcion, id } = producto;
+
+
+    //     if (categoria === selectedOption.value) {
+
+    //       const divProductos = document.createElement("div")
+
+    //       divProductos.innerHTML += `
+    //         <div class="producto">
+    //           <img class="img-producto" src="${img}" alt="${nombre}">
+    //           <p class="precio">Precio: <span>$${precio}</span></p>
+    //           <p class="tallas">Tallas: <span>${tallas}</span></p>
+    //           <p class="tonos">Tonos: <span>${descripcion}</span></p>
+    //           <div class="border-bottom"></div>
+    //         </div>
+    //       `;
+
+    //       resultado.appendChild(divProductos);
+    //       return;
+    //     }
+
+    //   });
   }
 
   function limpiarHtml() {
