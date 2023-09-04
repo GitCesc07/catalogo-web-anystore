@@ -96,7 +96,7 @@ body {
 
 @media (min-width: 1110px) {
     .grid-categoria {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
     }
 }
 
@@ -110,8 +110,14 @@ body {
     text-align: center;
     align-items: center;
     border: 2px solid var(--colorGrisClaro);
-    padding: 1rem;
+    padding: 1rem 0;
     border-radius: .8rem;
+}
+
+@media (min-width: 668px) { 
+    .card {
+        padding: 1rem;
+    }
 }
 
 .img-card {
@@ -119,15 +125,21 @@ body {
 }
 
 .btn {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     text-decoration: none;
     margin-top: 1rem;
     background-color: var(--colorRosaPastel);
     width: 95%;
-    padding: .6rem 1rem;
+    padding: 1rem;
     border-radius: .4rem;
     color: var(--colorNegro);
-    transition: background-color .3s;
+    transition: .5s;
+}
+
+@media (min-width: 668px) { 
+     .btn {
+        padding: .6rem 1rem;
+     }
 }
 
 .btn:hover {
@@ -211,12 +223,19 @@ body {
 }
 
 .categoria-select {
-    padding: .5rem 2rem;
+    padding: .8rem 2rem;
     font-size: 1.2rem;
     font-weight: 700;
     background-color: var(--colorRosaPastel);
     border: 1px solid var(--colorNegro);
     border-radius: .8rem;
+    width: 100%;
+}
+
+@media (min-width: 668px) { 
+    .categoria-select {
+        width: 20rem;
+    }
 }
 
 .footer {
@@ -237,4 +256,67 @@ body {
     font-size: 1.5rem;
     font-weight: 700;
     text-align: center;
+}
+
+/* Button subir */
+.go-top-container {
+    position: fixed;
+    bottom: 0rem;
+    right: 0rem;
+    width: 3rem;
+    height: 3rem;
+    z-index: -1;
+}
+
+.go-top-button {
+    width: 0rem;
+    height: 0rem;
+    background-color: var(--colorRojo);
+    border-radius: 50%;
+    cursor: pointer;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    opacity: 0.7;
+}
+
+.go-top-button .icon {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: .3s;
+}
+
+.show {
+    z-index: 10;
+}
+
+.show .go-top-button {
+    animation: popup .3s ease-in-out;
+    width: 3rem;
+    height: 3rem;
+    z-index: 11;
+}
+
+.show .icon {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+@keyframes popup {
+    0% {
+        width: 0rem;
+        height: 0rem;
+    }
+
+    50% {
+        width: 8rem;
+        height: 8rem;
+    }
+
+    100% {
+        width: 6.6rem;
+        height: 6.6rem;
+    }
 }
