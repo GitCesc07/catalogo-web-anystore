@@ -61,9 +61,6 @@
         divProductos.innerHTML += `
               <div class="producto">
                 <img class="img-producto" src="${img}" alt="${nombre}">
-                <p class="precio">Precio: <span>$${precio}</span></p>
-                <p class="tallas">Tallas: <span>${tallas}</span></p>
-                <p class="tonos">Tonos: <span>${descripcion}</span></p>
                 <div class="border-bottom"></div>
               </div>
             `;
